@@ -32,7 +32,7 @@ template<class T> class linkedList{
   node  *getNode(int index);
 };
 
-// linkedList::linkedList(): Default constructor for the linked list class
+// linkedList<T>::linkedList(): Default constructor for the linked list class
 // Initializes a single node whose value equals 0 and whose next point to null
 template <class T> linkedList<T>::linkedList() {
   HEAD        = new node;
@@ -43,7 +43,7 @@ template <class T> linkedList<T>::linkedList() {
   length      = 1;
 }
 
-// linkedList::linkedList(int value): Constructor for the linkedlist class that
+// linkedList<T>::linkedList(T value): Constructor for the linkedlist class that
 // sets the value of head equal to value and the next to null
 template <class T> linkedList<T>::linkedList(T value) {
   HEAD        = new node;
@@ -54,7 +54,7 @@ template <class T> linkedList<T>::linkedList(T value) {
   length      = 1;
 }
 
-// linkedList::append(int value): Appends a new node to the list whose value is
+// linkedList<T>::append(T value): Appends a new node to the list whose value is
 // equal to the given value.
 template <class T> void linkedList<T>::append(T value) {
   TAIL->next = new node;
@@ -64,7 +64,7 @@ template <class T> void linkedList<T>::append(T value) {
   length++;
 }
 
-//*linkedList::getNode(int index): Returns the address of the node at the given
+//*linkedList<T>::getNode(int index): Returns the address of the node at the given
 //index
 template <class T> typename linkedList<T>::node *linkedList<T>::getNode(int index) {
   conductor = HEAD;
@@ -81,20 +81,20 @@ template <class T> typename linkedList<T>::node *linkedList<T>::getNode(int inde
   return conductor;
 }
 
-//linkedlist::get(int index) returns the value of the list at a given index
+//linkedlist<T>::get(T index) returns the value of the list at a given index
 template <class T> T linkedList<T>::get(int index) {
   node *temp = getNode(index);
   return temp->value;
 }
 
-//linkedlist::set(in index, int value) sets the value of the node  at a given
+//linkedlist<T>::set(int index, T value) sets the value of the node  at a given
 //index to the given value
 template <class T> void linkedList<T>::set(int index, T value) {
   node *temp = getNode(index);
   temp->value = value;
 }
 
-//linkedList::insert(int index, value): inserts the given value at the node at
+//linkedList<T>::insert(int index, T value): inserts the given value at the node at
 //a given index. If the given index is greater than the length of the list, the
 //given value is appended to the end of the list.
 template <class T> void linkedList<T>::insert(int index, T value) {
@@ -119,7 +119,7 @@ template <class T> void linkedList<T>::insert(int index, T value) {
     length++;
   }
 }
-//linkedList::removeLast() removes the last node in the list
+//linkedList<T>::removeLast() removes the last node in the list
 template <class T> void linkedList<T>::removeLast(){
   conductor = HEAD;
   while (conductor != TAIL) {
@@ -131,7 +131,7 @@ template <class T> void linkedList<T>::removeLast(){
   length--;
 }
 
-//linkedList::remove(int index): removes the node at a given index;
+//linkedList<T>::remove(int index): removes the node at a given index;
 template <class T> void linkedList<T>::remove(int index) {
   if (index > length - 1) {
     // DO nothing (does not exist)
@@ -153,7 +153,7 @@ template <class T> void linkedList<T>::remove(int index) {
   }
 }
 
-//linkedlist::print() Prints the contents of the list
+//linkedlist<T>::print() Prints the contents of the list
 template <class T> void linkedList<T>::print() {
   conductor = HEAD;
   while (conductor != TAIL) {
