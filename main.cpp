@@ -6,7 +6,7 @@ using namespace std;
 int main(){
   cout << "Hello World" << endl;  
 
-  linkedList list1;
+  linkedList<int> list1;
   list1.print();
 
   for(int i = 0; i < 10; i++) {
