@@ -1,4 +1,5 @@
 #include "linkedLists.h"
+#include "stacks.h"
 #include <iostream>
 
 using namespace std;
