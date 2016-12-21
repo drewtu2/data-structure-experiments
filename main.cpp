@@ -8,14 +8,17 @@ int main(){
 
   linkedList list1;
   list1.print();
-  list1.append(1);
-  list1.append(2);
+
+  for(int i = 0; i < 10; i++) {
+    list1.append(i + 1);
+  }
   list1.print();
-  cout << "Length: " << list1.length << endl;
-  cout << "Index 1: " << list1.get(1) << endl;
-  cout << "Set Index 1 to 5" << endl;
-  list1.set(1, 5);
-  cout << "Index 1: " << list1.get(1) << endl;
+
+  list1.removeLast();
+  list1.remove(1);
+  list1.insert(1, 11);
+  list1.set(2, 12);
+  list1.print();
 
   return 0;
 }

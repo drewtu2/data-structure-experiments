@@ -62,6 +62,31 @@ void linkedList::set(int index, int value) {
   temp->value = value;
 }
 
+//linkedList::insert(int index, value): inserts the given value at the node at 
+//a given index. If the given index is greater than the length of the list, the 
+//given value is appended to the end of the list.
+void linkedList::insert(int index, int value) {
+  if (index >= length - 1) {
+    append(value);
+  }
+  else if (index == 0) {
+    node *nodeToInsert = new node;
+    nodeToInsert->value = value;
+    nodeToInsert->next = HEAD;
+    HEAD = nodeToInsert;
+    length++;
+  } 
+  else {
+    node *nodeToInsert = new node;
+    node *nodePriorToInsert = getNode(index - 1);
+    
+    nodeToInsert->value = value;
+    nodeToInsert->next = nodePriorToInsert->next;
+    nodePriorToInsert->next = nodeToInsert;
+
+    length++;
+  }
+}
 //linkedList::removeLast() removes the last node in the list
 void linkedList::removeLast(){
   conductor = HEAD;
@@ -81,15 +106,14 @@ void linkedList::remove(int index) {
   } 
   else if (index == length - 1) {
     removeLast();
+  }
+  else if(index == 0){
+    conductor = HEAD->next;
+    delete      HEAD;
+    HEAD      = conductor;
   } 
   else {
-    conductor = HEAD;
-    int i = 0;
-    while (i != index - 1) { // Locate the node immediately before the node to 
-                            // be removed
-      conductor = conductor->next;
-      i++;
-    }
+    conductor = getNode(index - 1);
     node *toRemove = conductor->next;
     conductor->next = toRemove->next;
     delete toRemove;
