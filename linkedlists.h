@@ -35,12 +35,8 @@ template<class T> class linkedList{
 // linkedList<T>::linkedList(): Default constructor for the linked list class
 // Initializes a single node whose value equals 0 and whose next point to null
 template <class T> linkedList<T>::linkedList() {
-  HEAD        = new node;
-  HEAD->value = 0;
-  HEAD->next  = 0;
-  TAIL        = HEAD;
-  conductor   = HEAD;
-  length      = 1;
+  //Create the empty linkedList
+  length  = 0;
 }
 
 // linkedList<T>::linkedList(T value): Constructor for the linkedlist class that
@@ -57,11 +53,20 @@ template <class T> linkedList<T>::linkedList(T value) {
 // linkedList<T>::append(T value): Appends a new node to the list whose value is
 // equal to the given value.
 template <class T> void linkedList<T>::append(T value) {
-  TAIL->next = new node;
-  TAIL = TAIL->next;
-  TAIL->value = value;
-  TAIL->next = 0;
-  length++;
+  if (length == 0) {
+    HEAD        = new node;
+    HEAD->value = value;
+    HEAD->next  = 0;
+    TAIL        = HEAD;
+    conductor   = HEAD;
+    length      = 1;
+  } else {
+    TAIL->next = new node;
+    TAIL = TAIL->next;
+    TAIL->value = value;
+    TAIL->next = 0;
+    length++;
+  }
 }
 
 //*linkedList<T>::getNode(int index): Returns the address of the node at the given
@@ -155,12 +160,16 @@ template <class T> void linkedList<T>::remove(int index) {
 
 //linkedlist<T>::print() Prints the contents of the list
 template <class T> void linkedList<T>::print() {
-  conductor = HEAD;
-  while (conductor != TAIL) {
-    std::cout << conductor->value << std::endl;
-    conductor = conductor->next;
+  if(length == 0) {
+    std::cout << "Empty List" << std::endl;
+  } else {
+    conductor = HEAD;
+    while (conductor != TAIL) {
+      std::cout << conductor->value << std::endl;
+      conductor = conductor->next;
+    }
+    std::cout << TAIL->value << std::endl;
   }
-  std::cout << TAIL->value << std::endl;
 }
 
 template <class T> void linkedList<T>::printStatus() {
