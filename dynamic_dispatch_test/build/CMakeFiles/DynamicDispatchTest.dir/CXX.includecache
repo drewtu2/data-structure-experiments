@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/atu/projects/data-structure-experiments/dynamic_dispatch_test/dynamic_dispatch_test.cpp
+iostream
+-
+memory
+-
+
