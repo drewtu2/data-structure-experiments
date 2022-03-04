@@ -4,12 +4,18 @@
 #include <string.h>
 
 void DoSomethingPtr(const std::shared_ptr<const std::vector<int>> vec) {
-    std::vector<int> test{vec->begin(), vec->end()};
+    int sum = vec->size();
+    //for(const int& val : *vec) {
+    //    sum += val;
+    //}
     return;
 }
 
 void DoSomethingReference(const std::shared_ptr<const std::vector<int>>& vec) {
-    std::vector<int> test{vec->begin(), vec->end()};
+    int sum = vec->size();
+    //for(const int& val : *vec) {
+    //    sum += val;
+    //}
     return;
 }
 
@@ -21,7 +27,7 @@ int main(int argc, char* argv[]) {
     } 
 
     srand((unsigned)time(NULL));
-    const int vec_size = 10;
+    const int vec_size = 100000;
     const int num_runs = 10 * 1000 * 1000;
 
     // Create a random vector. 
